@@ -1,23 +1,52 @@
-# ![RealWorld Example App](logo.png)
+[![Build Status](https://travis-ci.org/jooby-project/kotlin-starter.svg?branch=master)](https://travis-ci.org/jooby-project/kotlin-starter)
+# kotlin
 
-> ### [YOUR_FRAMEWORK] codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
+Starter project for [Kotlin](http://kotlinlang.org/).
+
+## quick preview
+
+This project contains:
+
+- A simple hello world application with an optional `name` parameter
+- Integration tests using [Spek](http://spekframework.org)
+
+[App.kt](https://github.com/jooby-project/kotlin-starter/blob/master/src/main/kotlin/starter/kotlin/App.kt):
+
+```kotlin
+import org.jooby.*
+
+/**
+ * Kotlin stater project.
+ */
+class App: Kooby({
+
+  get {
+    val name = param("name").value("Jooby")
+    "Hello $name!"
+  }
+
+})
 
 
-### [Demo](https://github.com/gothinkster/realworld)&nbsp;&nbsp;&nbsp;&nbsp;[RealWorld](https://github.com/gothinkster/realworld)
+/**
+ * Run application:
+ */
+fun main(args: Array<String>) {
+  run(::App, *args)
+}
 
+```
 
-This codebase was created to demonstrate a fully fledged fullstack application built with **[YOUR_FRAMEWORK]** including CRUD operations, authentication, routing, pagination, and more.
+## run
 
-We've gone to great lengths to adhere to the **[YOUR_FRAMEWORK]** community styleguides & best practices.
+    mvn jooby:run
 
-For more information on how to this works with other frontends/backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
+## tests
 
+    mvn clean package
 
-# How it works
+## help
 
-> Describe the general architecture of your app here
-
-# Getting started
-
-> npm install, npm start, etc.
-
+* Read the [module documentation](http://jooby.org/doc/lang-kotlin)
+* Join the [channel](https://gitter.im/jooby-project/jooby)
+* Join the [group](https://groups.google.com/forum/#!forum/jooby-project)
