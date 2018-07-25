@@ -1,1 +1,8 @@
 language: java
+
+before_script: npm install -g newman
+script:
+  - mvn test -B
+  - mvn jooby:run &
+  - sleep 5
+  - newman run api/Conduit.postman_collection.json -e api/Localhost.postman_environment.json
