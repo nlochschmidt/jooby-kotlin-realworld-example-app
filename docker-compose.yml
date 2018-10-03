@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  database:
+    image: postgres:10.4
+    environment:
+      POSTGRES_USER: realworld
+      POSTGRES_DB: realworld
+      POSTGRES_PASSWORD: supersecret
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data: {}
